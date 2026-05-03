@@ -1,91 +1,319 @@
+/* ========================================
+   CSS VARIABLES (Theming & Customization)
+   ======================================== */
 :root {
-  --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --background-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #2980b9;
+    --primary-color: #00bcd4;
+    --primary-dark: #0097a7;
+    --bg-light: #f4f4f4;
+    --bg-dark: #121212;
+    --bg-dark-secondary: #1a1a1a;
+    --bg-dark-tertiary: #2a2a2a;
+    --text-light: #333;
+    --text-dark: #fff;
+    --text-gray: #666;
+    --header-bg: #222;
+    --border-color: #ccc;
+    --transition: 0.3s;
+    --border-radius: 4px;
+    --touch-target: 44px;
 }
-[data-theme="dark"] {
-  --primary-color: #1abc9c;
-  --secondary-color: #16a085;
-  --background-color: #333333;
-  --text-color: #ffffff;
-  --link-color: #5dade2;
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Arial, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: background var(--transition), color var(--transition);
 }
-header, nav, footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem;
-  transition: background-color 0.3s ease;
+
+/* ========================================
+   DARK MODE THEME
+   ======================================== */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
 }
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-color);
-  transition: color 0.3s ease;
+
+body.dark header {
+    background: var(--bg-dark-secondary);
 }
-section {
-  padding: 2rem 1rem;
-  transition: background-color 0.3s ease;
+
+body.dark nav ul {
+    background: var(--bg-dark-tertiary);
 }
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+
+body.dark nav a {
+    color: var(--text-dark);
 }
-a:hover {
-  text-decoration: underline;
+
+body.dark input,
+body.dark textarea {
+    background: var(--bg-dark-tertiary);
+    color: var(--text-dark);
+    border-color: var(--bg-dark);
 }
-button {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+header {
+    background: var(--header-bg);
+    color: white;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-button:hover {
-  opacity: 0.9;
-}
-button:focus, a:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--secondary-color);
-}
-input, textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-input:focus, textarea:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
-@media (max-width: 600px) {
-  nav {
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  nav h2 {
-    margin: 0;
-  }
-  nav ul {
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color var(--transition);
+    padding: 8px 0;
+    display: block;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+nav a:focus,
+nav a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius);
+}
+
+/* ========================================
+   NAVIGATION BUTTONS
+   ======================================== */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 8px 16px;
+    cursor: pointer;
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+section:first-of-type {
+    margin-top: 60px;
+}
+
+/* ========================================
+   FORMS & INPUTS
+   ======================================== */
+form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-  }
+    max-width: 400px;
+    gap: 15px;
+}
+
+input,
+textarea {
+    margin: 0;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    min-height: var(--touch-target);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-gray);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+button {
+    padding: 12px 20px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background var(--transition);
+    font-weight: 500;
+    min-height: var(--touch-target);
+    font-size: 16px;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+button:focus,
+button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+/* Remove outlines for mouse users, keep for keyboard users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+#menuBtn {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    min-height: var(--touch-target);
+}
+
+#menuBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-dark-tertiary);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 12px 15px;
+        min-height: var(--touch-target);
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    #menuBtn {
+        display: inline-block;
+    }
+
+    section {
+        padding: 80px 15px;
+        margin-top: 60px;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    input,
+    textarea,
+    button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 10px;
+        min-height: auto;
+    }
+
+    nav ul {
+        width: 100%;
+        right: 0;
+    }
+
+    nav ul li {
+        padding: 15px 20px;
+    }
 }
