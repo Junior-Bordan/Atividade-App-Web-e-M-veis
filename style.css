@@ -5,6 +5,7 @@
   --text-color: #333333;
   --link-color: #2980b9;
 }
+
 [data-theme="dark"] {
   --primary-color: #1abc9c;
   --secondary-color: #16a085;
@@ -12,80 +13,85 @@
   --text-color: #ffffff;
   --link-color: #5dade2;
 }
+
+/* ===== BASE ===== */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
-  padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: 0.3s;
 }
-header, nav, footer {
+
+/* ===== HEADER ===== */
+header, nav {
   background-color: var(--primary-color);
-  color: white;
   padding: 1rem;
-  transition: background-color 0.3s ease;
 }
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-color);
-  transition: color 0.3s ease;
+
+/* ===== MENU ===== */
+nav ul {
+  list-style: none;
+  padding: 0;
 }
+
+/* 🔥 LINKS DO MENU (AJUSTE QUE VOCÊ PEDIU) */
+nav ul li a {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+/* Hover bonito */
+nav ul li a:hover {
+  color: #111;
+}
+
+/* ===== SEÇÕES ===== */
 section {
   padding: 2rem 1rem;
-  transition: background-color 0.3s ease;
 }
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+
+/* ===== SWITCH ===== */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
 }
-a:hover {
-  text-decoration: underline;
+
+.switch input {
+  opacity: 0;
 }
-button {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 10px 20px;
+
+.slider {
+  position: absolute;
   cursor: pointer;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;
+  background-color: #ccc;
+  border-radius: 34px;
+  inset: 0;
+  transition: 0.4s;
 }
-button:hover {
-  opacity: 0.9;
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
 }
-button:focus, a:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--secondary-color);
+
+input:checked + .slider {
+  background-color: #2ecc71;
 }
-input, textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-input:focus, textarea:focus {
-  border-color: var(--primary-color);
-  outline: none;
-}
-@media (max-width: 600px) {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav h2 {
-    margin: 0;
-  }
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+
+input:checked + .slider::before {
+  transform: translateX(24px);
 }
