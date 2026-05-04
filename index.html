@@ -1,30 +1,23 @@
+HTML em USO
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Configuração de caracteres e responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Título da página -->
     <title>Portfólio - Ademar Bordan</title>
-
-    <!-- Arquivo de estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ========================================
-         HEADER / MENU DE NAVEGAÇÃO
-         ======================================== -->
+    <!-- MENU -->
     <header>
         <nav>
-            <!-- Nome do site -->
             <h2>Portfólio - Ademar Bordan</h2>
 
-            <!-- Botão hamburguer (mobile) -->
+            <!-- BOTÃO MENU MOBILE -->
             <button id="menuBtn">☰</button>
 
-            <!-- Menu principal -->
             <ul id="menu">
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#formacao">Formação</a></li>
@@ -32,17 +25,14 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
 
-            <!-- Botão de troca de tema -->
+            <!-- Botão tema -->
             <button id="temaBtn">🌙</button>
         </nav>
     </header>
 
-    <!-- ========================================
-         SEÇÃO SOBRE
-         ======================================== -->
+    <!-- SOBRE -->
     <section id="sobre">
         <h1>Sobre Mim</h1>
-
         <p>
             Olá! Meu nome é Ademar Bordan, tenho 33 anos. Sou casado. Residente de Campo Grande, Mato Grosso do Sul. 
             Trabalho no setor privado, sou auxiliar administrativo, e faço a apuração e conferência tributária, auxiliando, também, meus colegas de trabalho, de forma remota. Atualmente estou no departamento fiscal. 
@@ -54,43 +44,34 @@
         </p>
     </section>
 
-    <!-- ========================================
-         SEÇÃO FORMAÇÃO
-         ======================================== -->
+    <!-- FORMAÇÃO -->
     <section id="formacao">
         <h1>Formação</h1>
-
         <ul>
             <li>Curso: Engenharia de Software (Cursando)</li>
             <li>Instituição: UNINTER</li>
             <li>Curso: Técnico em Contabilidade</li>
             <li>Instituição: CONTEP</li>
             <li>Curso: Montagem e manutenção de Micro</li>
-            <li>Instituição: Microlins</li>
+            <li>Instituição: Microlins</li>            
             <li>Idiomas: Português (nativo), Inglês (Fluente), Espanhol (Iniciante)</li>
         </ul>
     </section>
 
-    <!-- ========================================
-         SEÇÃO PORTFÓLIO
-         ======================================== -->
+    <!-- PORTFÓLIO -->
     <section id="portfolio">
         <h1>Portfólio</h1>
         <p>Confira meus projetos:</p>
-
         <ul>
             <li><a href="https://junior-bordan.github.io/Personal-page/">Atividade Disciplina: Fundamentos de Desenvolvimento de Softwares</a></li>
             <li><a href="https://drive.google.com/file/d/1W1UHmdPwgsSzLCTxCpLdv7VsHIP85biU/view">Atividade Disciplina: Comunicação Empresarial</a></li>
         </ul>
     </section>
 
-    <!-- ========================================
-         SEÇÃO CONTATO
-         ======================================== -->
+    <!-- CONTATO -->
     <section id="contato">
         <h1>Contato</h1>
 
-        <!-- Formulário -->
         <form id="formContato">
             <input type="text" id="nome" placeholder="Seu nome">
             <input type="email" id="email" placeholder="Seu email">
@@ -98,11 +79,10 @@
             <button type="submit">Enviar</button>
         </form>
 
-        <!-- Mensagem de retorno -->
         <p id="msg"></p>
     </section>
 
-    <!-- Script JS -->
+    <!-- SCRIPT -->
     <script src="script.js" defer></script>
 
 </body>
