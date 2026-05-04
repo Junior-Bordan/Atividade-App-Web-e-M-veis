@@ -5,23 +5,20 @@ const htmlElement = document.documentElement;
 // ===== CARREGAR TEMA SALVO =====
 const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
-temaBtn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
 
-// Ajusta ícone inicial
-if (temaSalvo === "dark") {
-    temaBtn.textContent = "☀️";
-} else {
-    temaBtn.textContent = "🌙";
-}
+// Define ícone inicial corretamente
+temaBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
 // ===== ALTERAR TEMA AO CLICAR =====
-temaBtn.addEventListener('click', function() {
+temaBtn.addEventListener('click', function () {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    temaBtn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+
+    // Atualiza ícone
+    temaBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
 });
 
 
@@ -29,7 +26,7 @@ temaBtn.addEventListener('click', function() {
 const form = document.getElementById("formContato");
 const msg = document.getElementById("msg");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let nome = document.getElementById("nome").value.trim();
