@@ -1,5 +1,3 @@
-JS em USO
-
 // ===== MENU MOBILE =====
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
