@@ -1,17 +1,15 @@
-// ========================================
-// MENU MOBILE
-// ========================================
+JS em USO
 
-// Elementos do menu
+// ===== MENU MOBILE =====
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 
-// Alterna menu (abrir/fechar)
+// Abrir/fechar menu
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("show");
 });
 
-// Fecha menu ao clicar em link
+// Fechar menu ao clicar em um link
 document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", () => {
         menu.classList.remove("show");
@@ -19,36 +17,31 @@ document.querySelectorAll("#menu a").forEach(link => {
 });
 
 
-// ========================================
-// TEMA (DARK / LIGHT)
-// ========================================
-
+// ===== BOTÃO DE TEMA =====
 const temaBtn = document.getElementById('temaBtn');
 const htmlElement = document.documentElement;
 
-// Carrega tema salvo
+// ===== CARREGAR TEMA SALVO =====
 const savedTheme = localStorage.getItem('theme') || 'light';
 htmlElement.setAttribute('data-theme', savedTheme);
 
-// Define ícone inicial
+// Define ícone inicial corretamente
 temaBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
-// Alterna tema
-temaBtn.addEventListener('click', () => {
+// ===== ALTERAR TEMA AO CLICAR =====
+temaBtn.addEventListener('click', function () {
     const currentTheme = htmlElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 
+    // Atualiza ícone
     temaBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
 });
 
 
-// ========================================
-// FORMULÁRIO
-// ========================================
-
+// ===== VALIDAÇÃO DO FORMULÁRIO =====
 const form = document.getElementById("formContato");
 const msg = document.getElementById("msg");
 
@@ -59,13 +52,13 @@ form.addEventListener("submit", function (e) {
     let email = document.getElementById("email").value.trim();
     let mensagem = document.getElementById("mensagem").value.trim();
 
-    // Campos obrigatórios
-    if (!nome || !email || !mensagem) {
+    // Verifica campos vazios
+    if (nome === "" || email === "" || mensagem === "") {
         alert("Preencha todos os campos!");
         return;
     }
 
-    // Validação de e-mail
+    // Validação de email
     let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!regex.test(email)) {
@@ -73,9 +66,10 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    // Sucesso
+    // Simulação de envio
     msg.innerText = "Mensagem enviada com sucesso!";
     msg.style.color = "green";
 
+    // Limpar formulário
     form.reset();
 });
